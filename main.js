@@ -15,8 +15,8 @@ function customerDirectoryCard(customer) {
     customerEmail.innerText = `${customer.email}`
     customerAddress.innerText = `${customer.location.street.number} ${customer.location.street.name}`;
     customerLocation.innerText = `${customer.location.city} ${customer.location.state} ${customer.location.postcode}`;
-    customerDob.innerText = `DOB:${customer.dob.date}`;
-    customerEst.innerHTML = `Customer since: ${customer.registered.date}`
+    customerDob.innerText = `DOB:${customer.dob.date.slice(0, 10)}`;
+    customerEst.innerHTML = `Customer since: ${customer.registered.date.slice(0, 10)}`
 
 
     customerContainer.appendChild(customerCard);

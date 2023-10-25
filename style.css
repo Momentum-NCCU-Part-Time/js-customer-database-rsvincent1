@@ -6,3 +6,15 @@
   column-gap: 20px;
   row-gap: 20px;
 }
+
+.image {
+  border-radius: 500px;
+}
+
+.name {
+  font-family: sans-serif;
+}
+
+.email {
+  color: grey;
+}

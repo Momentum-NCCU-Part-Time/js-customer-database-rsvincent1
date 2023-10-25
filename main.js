@@ -10,17 +10,17 @@ function customerDirectoryCard(customer) {
     let customerDob = document.createElement('div');
     let customerEst = document.createElement('div');
 
-    customerImage.src = `${customer.picture.large}`
-    customerName.innerText = `${customer.name.title} ${customer.name.first} ${customer.name.last}`;
+    customerImage.src = customer.picture.large
+    customerName.innerText = customer.name.first.charAt(0).toUpperCase() + customer.name.first.slice(1) + " " + customer.name.last.charAt(0).toUpperCase() + customer.name.last.slice(1);
     customerEmail.innerText = `${customer.email}`
     customerAddress.innerText = `${customer.location.street.number} ${customer.location.street.name}`;
-    customerLocation.innerText = `${customer.location.city} ${customer.location.state} ${customer.location.postcode}`;
-    customerDob.innerText = `DOB:${customer.dob.date.slice(0, 10)}`;
-    customerEst.innerHTML = `Customer since: ${customer.registered.date.slice(0, 10)}`
+    customerLocation.innerText = `${customer.location.city}, ${nameToAbbr(customer.location.state)} ${customer.location.postcode}`;
+    customerDob.innerText = `DOB: ${moment(customer.dob.date).format("MMM D, YYYY")}`;
+    customerEst.innerHTML = `Customer since: ${moment(customer.registered.date).format("MMM D, YYYY")}`
 
 
     customerContainer.appendChild(customerCard);
-    customerCard.append(customerImage)
+    customerCard.appendChild(customerImage)
     customerCard.appendChild(customerName);
     customerCard.appendChild(customerEmail);
     customerCard.appendChild(customerAddress);
@@ -30,4 +30,5 @@ function customerDirectoryCard(customer) {
 
 }
 let database = customers.map((customer) => customerDirectoryCard(customer))
-
+// use to upper case first last name 
+// charAt(0).toUpperCase() + customer.name.last.slice(1)

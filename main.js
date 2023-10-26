@@ -16,7 +16,7 @@ function customerDirectoryCard(customer) {
     customerAddress.innerText = customer.location.street.number + " " + customer.location.street.name;
     customerLocation.innerText = customer.location.city + "," + " " + nameToAbbr(customer.location.state) + " " + customer.location.postcode;
     customerDob.innerText = "DOB:" + " " + moment(customer.dob.date).format("MMM D, YYYY");
-    customerEst.innerHTML = "Customer since:" + " " + moment(customer.registered.date).format("MMM D, YYYY")
+    customerEst.innerText = "Customer since:" + " " + moment(customer.registered.date).format("MMM D, YYYY")
 
 
     customerContainer.appendChild(customerCard);
